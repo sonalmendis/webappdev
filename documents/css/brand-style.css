@@ -1,0 +1,83 @@
+body {
+color:#1A1A1A;
+}
+
+textarea {
+resize: none;
+}
+
+.row [class*="col-"]{
+  margin-bottom: -99999px;
+  padding-bottom: 99999px;
+}
+
+.row{
+  overflow: hidden !important; 
+}
+
+
+
+h1,h2,h3,h4 {
+margin:0;
+}
+
+h2 {
+font-size:16px;
+}
+
+h3 {
+font-size:20px;
+}
+
+p {
+font-size:14px;
+margin:5px 0 0 0;
+}
+ 
+
+.left-side {
+color:white;
+padding-left:20px;
+padding-right:20px;
+background-color:#24244C;
+height:100vh;
+}
+
+.container-push {
+padding:0px 20px;
+}
+
+.chats .chat-link {
+margin-top:16px;
+}
+
+.chats a{
+color:white;
+text-decoration:none;
+font-size:18px;
+font-weight:bold;
+}
+
+
+.right-side h1, .right-side h2{
+font-weight:normal;
+}
+
+
+#upload-file-container {
+   background: url(../img/upload-button.png) no-repeat;
+cursor:pointer;
+background-size: contain;
+}
+
+
+#upload-file-container input{
+filter: alpha(opacity=0);
+   opacity: 0;
+cursor:pointer;
+}
+
+form.broadcast-form [class*="col-"] {
+margin-top:15px;
+}
+

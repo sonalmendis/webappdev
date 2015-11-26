@@ -1,0 +1,86 @@
+body {
+  background: url(../img/bg.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#form-container {
+height:70%;
+ margin: auto;
+ 
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+#form-container form {
+margin-bottom:100px;
+}
+
+h1,h2,h3,h4 {
+margin:0;
+}
+
+h1 {
+color:white;
+text-align:center;
+font-size:46px !important;
+}
+
+h3 {
+text-align:center;
+color:white;
+margin-bottom:10px;
+}
+
+
+#form-container input[type='text'],#form-container input[type='email'],  #form-container input[type='password'], #form-container select {
+    margin-bottom: 15px;
+    border-radius: 8px;
+    height: 40px;
+}
+
+#form-container .btn {
+width:100%;
+    border-radius: 8px;
+    height: 40px;
+	background-color:#409BED;
+	color:white;
+	font-weight:bold;
+	font-size:18px;
+}
+
+#form-container .btn.red {
+background-color:#D61245;
+}
+
+
+
+
+
+
+
+
+.register.prof-pic-container {
+width:100px;
+height:100px;
+background-size:cover;
+border-radius:50%;
+border:2px solid white;
+}
+
+
+label#prof-pic-label input[type="file"] {
+    position: fixed;
+    top: -1000px;
+}
+
+#form-container #prof-pic-label {
+width:200px;
+padding-top:10px;
+padding-bottom:10px;
+height:auto;
+margin:20px auto 0 auto;
+display:block;
+}

@@ -44,8 +44,7 @@ else {
 	{
 		$sql="INSERT INTO users(email, password, user_type, profile_picture, display_name, brand_name, brand_website) VALUES('$email', '$pword', '$utype', '$final_file', '$displayname', '$brandname', '$brandwebsite')";
 		mysql_query($sql);
-		
-		$success_message = "<div style='font-weight:bold;font-size:18px;'>You have successfully registered. Please login</div><br> <a href='index.php'><input type='submit' class='btn' value='Login'></a>";
+		header("Location: register-success.php"); 
 
 
 	}
@@ -96,7 +95,14 @@ else {
 <div id="form-container" class="col-md-3 col-xs-10">
 
 <h1>Register</h1>
-
+<div style="text-align:center;font-size:30px;font-weight:bold;margin:30px 0;color:white;">
+<?php
+error_reporting(0); 
+echo $password_not_match;
+echo $username_exists;
+echo $success_message; 
+?>
+</div>
 
 
 
@@ -104,6 +110,11 @@ else {
 	
 	
 		<div class="register prof-pic-container" style="background-image: url(#);margin:0 auto;"></div>
+	
+	
+	<div style="margin-top:-40xp;font-size:16px;color:white;text-align:center;">
+
+</div>
 	
 	<label id="prof-pic-label" class="btn red">
     <input type='file' name="profile-pic" id="imgInp" required/>
@@ -131,14 +142,7 @@ else {
 </form>
 
 
-<div style="margin-top:-40xp;font-size:16px;color:white;text-align:center;">
-<?php
-error_reporting(0); 
-echo $password_not_match;
-echo $username_exists;
-echo $success_message; 
-?>
-</div>
+
 
 
 

@@ -62,7 +62,7 @@ mixpanel.init("d1f7ac84a1663ea7dfdecf4072bd0497");</script><!-- end Mixpanel -->
 <h1>Himmi</h1>
 
 	<form name="form2" action="../login.php" method="post">
-<input placeholder="Username" class="form-control" type="text" name="username">
+<input placeholder="Email" class="form-control" type="text" name="username">
 <input class="form-control" placeholder="Password" type="password" name="password">
 <input type="submit" name="submit" class="btn" value="Login">
 </form>

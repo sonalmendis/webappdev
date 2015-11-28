@@ -84,6 +84,8 @@ myApp.onPageInit('feed-chat', function (page) {
 var feedid = document.getElementById('brandid');
 var neededData = feedid.innerHTML;
 
+
+/* The following function is concerned with sending/addding a chat message to insert.php which then is processed in logs.php and added to the database */
 $('.message-textarea').keypress(function (e) {
   if (e.which == 13) {
 if(form1.msg.value == '') {
@@ -106,6 +108,7 @@ xmlhttp.open('GET','../insert.php?brandid='+neededData+'&msg='+msg, true);
 xmlhttp.send();
 
 
+/* The commented out script below is to try and get the screen to move up once a user enters a message */
 /* $(".message-textarea").val('');
 setTimeout(function(){
 $('.page-content').animate({ scrollTop: $('.messages-content').height()}, 1);
@@ -113,25 +116,29 @@ $('.page-content').animate({ scrollTop: $('.messages-content').height()}, 1);
 
     return false;    //<---- Add this line
   }
-  /*
-  	$( "#some_id" ).click(function() {
-		clearInterval(refreshIntervalId);
-		neededData = null;
-	}); */
+
   
 });
 
 
-$(document).ready(function(e) {
 
+/* The following function is concerned with loading the message logs (chat history) for that specific chat via logs.php */
+$(document).ready(function(e) {
 
 	$.ajaxSetup({cache:false});
 	$('#chatlogs').load('../logs.php?brandid='+neededData, function() {
 		$('.page-content').animate({ scrollTop: $('.messages-content').height()}, 1);
 	}); 
+	
+	/* Rechecks the logs every 3 seconds for any new messages i.e realtime updating */
 	var refreshIntervalId = setInterval(function() {$('#chatlogs').load('../logs.php?brandid='+neededData)}, 3000);
 	
-	$( "#some_id" ).click(function() {
+	
+	/* The following clears the variable 'neededData' when to prevent it being kept,
+	otherwise when this script runs again (when you open another chat with someone else) it would try loading
+	both logs and flicker between the two */
+
+	$( "#back-btn-from-chat" ).click(function() {
 		clearInterval(refreshIntervalId);
 		neededData = null;
 	});

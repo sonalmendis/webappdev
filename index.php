@@ -1,1 +1,1 @@
-<?php header("Location: landing");   ?>
+<?php header("Location: documents/index.php");   ?>

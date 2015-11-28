@@ -16,7 +16,7 @@ $user_id = $_SESSION['ID'];
          <div class="navbar-inner">
 
 			<div class="left">
-			 <a href="view.php" id="some_id" class="back link"><i class="fa fa-arrow-left fa-lg"></i></a>  
+			 <a href="view.php" id="back-btn-from-chat" class="back link"><i class="fa fa-arrow-left fa-lg"></i></a>  
             </div>
 			
            <div class="center sliding">Chat</div></a>

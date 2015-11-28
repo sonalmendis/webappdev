@@ -100,10 +100,13 @@ if($user_type == 'brand') {
 	
 	header("Location: brand-index.php"); 
 	
-} else {
+} elseif ($user_type == 'influencer') {
 	
 	header("Location: view.php"); 
 	
+} else {
+	
+	header("Location: ../index.php"); 
 }
 
 

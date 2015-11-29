@@ -147,8 +147,3 @@ $(document).ready(function(e) {
 });
 
 });
-
-
-
-
-

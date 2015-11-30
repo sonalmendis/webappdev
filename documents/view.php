@@ -94,45 +94,14 @@ mixpanel.track("Visit influencers home");
             <a href="view.php"><div class="center sliding"><img src="img/feed-icon@1x.png" srcset="img/feed-icon@2x.png 2x, img/feed-icon@3x.png 3x" /></div></a>
 			
             <div class="right">
-			<?php 
 			
-			
-			
-			
-	/* First we need to get all the logs that are actually part of the chat the influencer is in, so get the right chat_id first: */
-	$get_influencer_chat_ids="SELECT ID FROM user_chat_records WHERE influencer_id = $user_id";
-	$chat_ids_results=mysql_query($get_influencer_chat_ids);
 
-	if (mysql_num_rows($chat_ids_results) == 0) {
-
-} else {
-	
-		while($chat_ids_array=mysql_fetch_array($chat_ids_results))
-	{
-		$myArray[]=$chat_ids_array['ID']; 
-	}
-	
-		/* Now we actually get the logs based on the chat_ids and grouping them by chat_id (because we only need the latest
- message - meaning one record) and choosing the record with the latest date: */
-$myArray = join(', ', $myArray);
-	$get_logs_from_chat_id="SELECT * FROM logs INNER JOIN user_chat_records ON user_chat_records.ID = logs.chat_id INNER JOIN users ON users.ID = user_chat_records.brand_id WHERE date_submitted IN (SELECT MAX(date_submitted) FROM logs WHERE chat_id IN ($myArray) AND user_id != $user_id AND is_read IS NULL GROUP BY chat_id) ORDER BY date_submitted DESC";
-
-	$logs_results=mysql_query($get_logs_from_chat_id);
-
-	
-		
-		
-		while($logs_array_new_chats = mysql_fetch_array($logs_results)) {
-		
-		$myArray_collected_new_messages[]=$logs_array_new_chats['msg'];
-		
-	}
-		
-	};
-
-?>
-
-             <a href="influencer-chat-records.php" class="link icon-only"><?php if( empty( $myArray_collected_new_messages ) ) {echo "<i class='fa fa-commenting-o fa-lg'></i>";} else { echo "<img src='img/new-message-icon-18.svg' style='width:31px;margin-top: -6px;' alt='Logo'>"; };  ?></a>
+			<!-- Real time checking of unread messages -->
+<script>
+$.ajaxSetup({cache:false});
+setInterval(function() {$('#chat-icon').load('../influencer-new-message-check.php?userid='+<?php echo $user_id ?>)}, 3000);
+</script>
+             <a id="chat-icon" href="influencer-chat-records.php" class="link icon-only"></a>
             </div>
 
           </div>
@@ -231,6 +200,16 @@ if (mysql_num_rows($result_set2)){
     <script type="text/javascript" src="js/framework7.min.js"></script>
     <!-- Path to your app js-->
     <script type="text/javascript" src="js/my-app.js"></script>
+	
+<script>
+$( document ).ready(function() {
+
+
+$('#chat-icon').load('../influencer-new-message-check.php?userid='+<?php echo $user_id ?>)
+
+});
+</script>
+
 
   </body>
   

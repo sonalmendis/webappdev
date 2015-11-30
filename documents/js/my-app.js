@@ -123,7 +123,6 @@ $('.page-content').animate({ scrollTop: $('.messages-content').height()}, 1);
 
 
 /* The following function is concerned with loading the message logs (chat history) for that specific chat via logs.php */
-$(document).ready(function(e) {
 
 	$.ajaxSetup({cache:false});
 	$('#chatlogs').load('../logs.php?brandid='+neededData, function() {
@@ -144,6 +143,6 @@ $(document).ready(function(e) {
 	});
 
 
-});
+
 
 });

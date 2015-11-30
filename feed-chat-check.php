@@ -26,7 +26,7 @@ $results_100_value = $results_100_array['userchatrecordsid'];
 $empty_check =  mysql_num_rows($result100);
 
 /*If there are records (i.e, you've chatted with this brand before) then it will go to the feed-chat page and give the brand_id to know who you're talking to)*/
-
+/*The function is mainly to check wether you're reading an unread message or not and updating it accordingly*/
 
 if (!empty($empty_check)){
 $get_logs_from_chat_id="SELECT *, logs.ID AS logsID FROM logs WHERE user_id = $brand_id && chat_id = $results_100_value && is_read IS NULL";
